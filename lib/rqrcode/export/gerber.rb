@@ -13,15 +13,18 @@ module RQRCode
       # quiet_zone_size: (4)
       #
       def flash(x,y)
-        top_y = (@y_origin + @module_count + (@quiet_zone_size *2 )) * @pixel_width
+        top_y = (@module_count + (@quiet_zone_size *2 )) * @pixel_width
         y = top_y - (y * @pixel_width)
         if @mirrored then
-          right_x = (@x_origin + @module_count + (@quiet_zone_size*2)) * @pixel_width
+          right_x = (@module_count + (@quiet_zone_size*2)) * @pixel_width 
           x = right_x - (x * @pixel_width)
         else
-          x = @x_origin + x * @pixel_width
+          x = x * @pixel_width
         end
-        #puts "FLASH #{x} #{y}"
+        
+        x += (@x_origin)
+        y += (@y_origin)
+
         y = (y * @p_mult).to_i
         x = (x * @p_mult).to_i
         return "G01X#{x}Y#{y}D03*\n"

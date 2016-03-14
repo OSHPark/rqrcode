@@ -3,12 +3,12 @@ $:.push File.expand_path("../lib", __FILE__)
 require "rqrcode/version"
 
 Gem::Specification.new do |s|
-  s.name        = "rqrcode"
+  s.name        = "oshpark-rqrcode"
   s.version     = RQRCode::VERSION
   s.platform    = Gem::Platform::RUBY
-  s.authors     = ["Björn Blomqvist","Duncan Robertson"]
+  s.authors     = ["Laen", "Björn Blomqvist","Duncan Robertson"]
   s.email       = ["darwin@bits2life.com"]
-  s.homepage    = "https://github.com/whomwah/rqrcode"
+  s.homepage    = "https://github.com/OSHPark/rqrcode"
   s.summary     = "A library to encode QR Codes"
   s.description = <<EOF
 rQRCode is a library for encoding QR Codes. The simple
