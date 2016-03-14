@@ -59,6 +59,7 @@ svg = qrcode.as_svg
 html = qrcode.as_html
 string = qrcode.as_ansi
 string = qrcode.to_s
+gerber = qrcode.as_gerber
 ```
 
 ## Image Rendering
@@ -111,6 +112,18 @@ IO.write("/tmp/github-qrcode.png", png.to_s)
 ```
 
 ![QR code with github url](./images/github-qrcode.png)
+
+### Gerber / RS-274x
+qrcode = RQRCode::QRcode.new("http://github.com/")
+gerber = qrcode.as_gerber(
+          precision: 6,
+          pixel_width: 0.010, # inches
+          x_origin: 0.000, # inches
+          y_origin: 0.000, # inches
+          quiet_zone_size: 1,
+          mirrored: false
+)
+IO.write("qrcode.ger, gerber)
 
 ## HTML Rendering
 ### In your controller
